@@ -1,0 +1,23 @@
+{
+  "name": "qtum-tools",
+  "version": "1.0.0",
+  "description": "",
+  "main": "qtum-upgrade-timing-estimation.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/shu-kob/qtum-tools.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/shu-kob/qtum-tools/issues"
+  },
+  "homepage": "https://github.com/shu-kob/qtum-tools#readme",
+  "dependencies": {
+    "node-fetch": "^3.2.6"
+  },
+  "type": "module"
+}
