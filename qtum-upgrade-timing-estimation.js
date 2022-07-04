@@ -6,6 +6,13 @@ const pastNumber10000 = 10000;
 const pastNumber50000 = 50000;
 const pastNumber100000 = 100000;
 
+const second_29 = 29;
+const second_30 = 30;
+const second_31 = 31;
+const second_32 = 32;
+const second_33 = 33;
+const second_34 = 34;
+
 const convert_msec = 1000;
 
 async function getJsonData(uri_path){
@@ -27,8 +34,6 @@ async function getRecentBlock(){
 async function getPastBlockTime(recent_block, past_block_number){
   const recent_block_height = recent_block[0];
   const recent_block_time = recent_block[1];
-
-
   let past_block_height  = recent_block[0] - past_block_number;
   let past_block_path = `/block/${past_block_height}`;
   let pastblock_data = await getJsonData(past_block_path);
@@ -39,10 +44,31 @@ async function getPastBlockTime(recent_block, past_block_number){
   return recent_block;
 }
 
+async function getConstTime(recent_block, const_second){
+  const recent_block_height = recent_block[0];
+  const recent_block_time = recent_block[1];
+  let blockMiningTime = const_second;
+  let unixtime_expectation = ((hardForkBlockHeight - recent_block_height) * blockMiningTime ) + recent_block_time;
+  console.log("ブロック生成平均時間: ", blockMiningTime, "秒    の場合:   ", new Date(unixtime_expectation * convert_msec).toLocaleString());
+  return recent_block;
+}
+
 getRecentBlock().then(recent_block => {
   getPastBlockTime(recent_block, pastNumber10000).then(recent_block => {
     getPastBlockTime(recent_block, pastNumber50000).then(recent_block => {
-      getPastBlockTime(recent_block, pastNumber100000);
+      getPastBlockTime(recent_block, pastNumber100000).then(recent_block => {
+        getConstTime(recent_block, second_29).then(recent_block => {
+          getConstTime(recent_block, second_30).then(recent_block => {
+            getConstTime(recent_block, second_31).then(recent_block => {
+              getConstTime(recent_block, second_32).then(recent_block => {
+                getConstTime(recent_block, second_33).then(recent_block => {
+                  getConstTime(recent_block, second_34);
+                });
+              });
+            });
+          });
+        });
+      });
     });
   });
 });
