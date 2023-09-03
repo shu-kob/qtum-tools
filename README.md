@@ -16,4 +16,4 @@ node qtum-upgrade-timing-estimation.js
 
 ## Update Info
 
-https://github.com/qtumproject/qtum/releases/tag/v22.1
+- https://github.com/qtumproject/qtum/releases/tag/v24.1
