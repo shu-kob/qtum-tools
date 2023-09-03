@@ -9,7 +9,7 @@ cd qtum-tools
 
 npm i
 
-export QTUM_UPGRADE_BLOCKHEIGHT=2080512
+export QTUM_UPGRADE_BLOCKHEIGHT=3385122
 
 node qtum-upgrade-timing-estimation.js
 ```
